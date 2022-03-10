@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ActionsContainer {
+class ActionsSettings {
   final double? containerWidth;
   final double? containerHeight;
   final Color? containerColor;
   final EdgeInsets? containerPadding;
 
-  const ActionsContainer({
+  const ActionsSettings({
     this.containerWidth,
     this.containerHeight = 40,
     this.containerColor = Colors.white,

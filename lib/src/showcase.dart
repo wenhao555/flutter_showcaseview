@@ -70,7 +70,7 @@ class Showcase extends StatefulWidget {
   final bool disableAnimation;
   final EdgeInsets overlayPadding;
   final Widget? actions;
-  final ActionsContainer actionsContainer;
+  final ActionsSettings actionSettings;
 
   /// Defines blur value.
   /// This will blur the background while displaying showcase.
@@ -84,7 +84,7 @@ class Showcase extends StatefulWidget {
     required this.key,
     required this.child,
     this.title,
-    required this.description,
+    this.description,
     this.shapeBorder,
     this.overlayColor = Colors.black45,
     this.overlayOpacity = 0.75,
@@ -104,10 +104,14 @@ class Showcase extends StatefulWidget {
     this.blurValue,
     this.radius,
     this.actions,
-    this.actionsContainer = const ActionsContainer(),
+    this.actionSettings = const ActionsSettings(),
   })  : height = null,
         width = null,
         container = null,
+        assert(
+            title != null || description != null,
+            "User has to provide either title or description "
+            "in order to display tooltip"),
         assert(overlayOpacity >= 0.0 && overlayOpacity <= 1.0,
             "overlay opacity must be between 0 and 1."),
         assert(
@@ -149,7 +153,7 @@ class Showcase extends StatefulWidget {
     this.overlayPadding = EdgeInsets.zero,
     this.blurValue,
     this.actions,
-    this.actionsContainer = const ActionsContainer(),
+    this.actionSettings = const ActionsSettings(),
   })  : showArrow = false,
         onToolTipClick = null,
         assert(overlayOpacity >= 0.0 && overlayOpacity <= 1.0,
@@ -317,7 +321,7 @@ class _ShowcaseState extends State<Showcase> {
                   disableAnimation: widget.disableAnimation,
                   animationDuration: widget.animationDuration,
                   actions: widget.actions,
-                  actionsContainer: widget.actionsContainer,
+                  actionSettings: widget.actionSettings,
                   arrowSize: Size(18, 9), // TODO: get this width from user.
                 ),
               ],

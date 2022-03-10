@@ -169,61 +169,15 @@ class _MailPageState extends State<MailPage> {
                                   children: <Widget>[
                                     Showcase(
                                       key: _one,
+                                      title: "Menu",
+                                      titleTextStyle: const TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.red,
+                                      ),
                                       description: 'Tap to see menu options',
                                       child: Icon(
                                         Icons.menu,
                                         color: Theme.of(context).primaryColor,
-                                      ),
-                                      actionsContainer: const ActionsContainer(
-                                        containerWidth: 200,
-                                      ),
-                                      actions: Container(
-                                        color: Colors.black,
-                                        height: 40,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            TextButton(
-                                              child: const Text(
-                                                'Previous',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                              style: TextButton.styleFrom(
-                                                  padding: EdgeInsets.zero),
-                                              onPressed: () {
-                                                ShowCaseWidget.of(context)!
-                                                    .prev();
-                                              },
-                                            ),
-                                            TextButton(
-                                              child: const Text(
-                                                'Stop',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                              style: TextButton.styleFrom(
-                                                  padding: EdgeInsets.zero),
-                                              onPressed: () {
-                                                ShowCaseWidget.of(context)!
-                                                    .dismiss();
-                                              },
-                                            ),
-                                            TextButton(
-                                              child: const Text(
-                                                'Next',
-                                              ),
-                                              style: TextButton.styleFrom(
-                                                padding: EdgeInsets.zero,
-                                              ),
-                                              onPressed: () {
-                                                ShowCaseWidget.of(context)!
-                                                    .completed(_one);
-                                              },
-                                            ),
-                                          ],
-                                        ),
                                       ),
                                     ),
                                     const SizedBox(
@@ -344,27 +298,6 @@ class _MailPageState extends State<MailPage> {
             Icons.add,
           ),
         ),
-        actionsContainer: const ActionsContainer(
-          containerColor: Colors.white70,
-          containerWidth: 250,
-        ),
-        actions: ShowCaseDefaultActions(
-          mainAxisSize: MainAxisSize.min,
-          dividerThickness: 0.0,
-          verticalDividerColor: Colors.transparent,
-          previous: ActionButtonConfig(
-            textColor: Colors.black,
-            callback: ShowCaseWidget.of(context)!.prev,
-          ),
-          next: ActionButtonConfig(
-            textColor: Colors.black,
-            callback: () => ShowCaseWidget.of(context)!.completed(_five),
-          ),
-          stop: ActionButtonConfig(
-            textColor: Colors.black,
-            callback: ShowCaseWidget.of(context)!.dismiss,
-          ),
-        ),
       ),
     );
   }
@@ -379,7 +312,7 @@ class _MailPageState extends State<MailPage> {
           ),
         );
       },
-      child: Container(
+      child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Showcase(
           key: _three,
@@ -412,35 +345,38 @@ class _MailPageState extends State<MailPage> {
                         key: _four,
                         shapeBorder: const CircleBorder(),
                         radius: const BorderRadius.all(Radius.circular(150)),
-                        container: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Container(
-                              width: 45,
-                              height: 45,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xffFCD8DC),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'S',
-                                  style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
+                        container: Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                width: 45,
+                                height: 45,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xffFCD8DC),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'S',
+                                    style: TextStyle(
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text(
-                              "Your sender's profile ",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                "Your sender's profile ",
+                                style: TextStyle(color: Colors.white),
+                              )
+                            ],
+                          ),
                         ),
                         child: Container(
                           margin: const EdgeInsets.all(10),
@@ -462,50 +398,6 @@ class _MailPageState extends State<MailPage> {
                               ),
                             ),
                           ),
-                        ),
-                        actions: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ElevatedButton(
-                              child: const Text(
-                                'Previous',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                  backgroundColor:
-                                      Theme.of(context).primaryColor),
-                              onPressed: () {
-                                ShowCaseWidget.of(context)!.prev();
-                              },
-                            ),
-                            ElevatedButton(
-                              child: Text(
-                                'Stop',
-                                style: TextStyle(
-                                    color: Theme.of(context).primaryColor),
-                              ),
-                              style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                  backgroundColor: Colors.white),
-                              onPressed: () {
-                                ShowCaseWidget.of(context)!.dismiss();
-                              },
-                            ),
-                            ElevatedButton(
-                              child: const Text(
-                                'Next',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                  backgroundColor:
-                                      Theme.of(context).primaryColor),
-                              onPressed: () {
-                                ShowCaseWidget.of(context)!.completed(_four);
-                              },
-                            ),
-                          ],
                         ),
                       ),
                       const Padding(padding: EdgeInsets.only(left: 8)),
@@ -566,46 +458,6 @@ class _MailPageState extends State<MailPage> {
                 ),
               ],
             ),
-          ),
-          actions: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                child: const Text(
-                  'Previous',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    backgroundColor: Theme.of(context).primaryColor),
-                onPressed: () {
-                  ShowCaseWidget.of(context)!.prev();
-                },
-              ),
-              ElevatedButton(
-                child: Text(
-                  'Stop',
-                  style: TextStyle(color: Theme.of(context).primaryColor),
-                ),
-                style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero, backgroundColor: Colors.white),
-                onPressed: () {
-                  ShowCaseWidget.of(context)!.dismiss();
-                },
-              ),
-              ElevatedButton(
-                child: const Text(
-                  'Next',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    backgroundColor: Theme.of(context).primaryColor),
-                onPressed: () {
-                  ShowCaseWidget.of(context)!.completed(_three);
-                },
-              ),
-            ],
           ),
         ),
       ),
