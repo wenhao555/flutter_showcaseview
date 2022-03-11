@@ -1,3 +1,7 @@
+## [1.1.6] - March 11, 2022 [Unreleased]
+
+- Fixes [#99](https://github.com/SimformSolutionsPvtLtd/flutter_showcaseview/isseues/99) - https://github.com/SimformSolutionsPvtLtd/flutter_showcaseview/issues/99
+
 ## [1.1.5] - March 4, 2022
 
 - Fixed [#173](https://github.com/SimformSolutionsPvtLtd/flutter_showcaseview/issues/173) - showArrow not working
