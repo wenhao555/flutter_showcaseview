@@ -261,7 +261,7 @@ class _ShowcaseState extends State<Showcase> {
         ? Stack(
             children: [
               GestureDetector(
-                onTap: _nextIfAny,
+                onTap: _nextIfAny,//todo 修改后兼容点击背景
                 child: ClipPath(
                   clipper: RRectClipper(
                     area: _isScrollRunning ? Rect.zero : rectBound,
